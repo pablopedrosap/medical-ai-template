@@ -6,7 +6,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
 
-** This is a sanitized template** based on a production medical-legal expertise platform that has processed:
+**This is a sanitized template** based on a production medical-legal expertise platform that has processed:
 - **1,000+ medical reports**
 - **€4M+ in litigation value**
 - **60+ medical experts** using the system
@@ -672,4 +672,5 @@ Technical Lead & AI Engineer
 Built with: Next.js 15 • FastAPI • OpenAI (GPT-4o, O1, O3) • Google Gemini (2.0 Flash, 2.5 Pro) • Perplexity Sonar • Supabase • Google Cloud Platform
 
 **Last Updated**: January 2025
+
 
