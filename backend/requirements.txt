@@ -1,0 +1,59 @@
+# Medical AI Platform - Backend Dependencies
+# Python 3.10+
+
+# FastAPI & Web Server
+fastapi==0.115.6
+uvicorn[standard]==0.22.0
+gunicorn==20.1.0
+python-multipart==0.0.9
+
+# AI APIs
+openai==1.54.0
+google-genai==1.0.0
+anthropic==0.40.0  # Optional: Claude support
+
+# Document Processing
+PyMuPDF==1.22.5  # fitz
+PyPDF2==3.0.1
+pdf2image==1.17.0
+python-docx==1.1.2
+pdf2docx==0.5.8
+Pillow==11.0.0
+opencv-python==4.10.0.84
+
+# Document Generation
+markdown==3.7
+Jinja2==3.1.5
+WeasyPrint==63.1
+html2docx==1.6.0
+
+# Cloud Services
+google-cloud-storage==2.18.2
+google-cloud-tasks==2.16.5
+boto3==1.35.79  # AWS (optional, for Textract)
+
+# Database
+supabase==2.10.0
+psycopg2-binary==2.9.10
+
+# Async & Concurrency
+aiofiles==24.1.0
+asyncio==3.4.3
+
+# Configuration
+python-dotenv==1.0.1
+pydantic==2.10.5
+PyYAML==6.0.2
+
+# Utilities
+requests==2.32.3
+aiohttp==3.11.11
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+
+# Logging & Monitoring (optional)
+# sentry-sdk==2.19.2
+# datadog==0.50.2

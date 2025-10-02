@@ -1,0 +1,107 @@
+# AI Model Configuration
+# =====================
+# Configure all AI models used in the pipeline.
+# Replace API keys in .env file (never commit keys to git!)
+
+models:
+  # OCR & Text Extraction
+  ocr:
+    provider: gemini
+    model: gemini-2.0-flash
+    max_tokens: 8024
+    temperature: 0.0
+    concurrent_calls: 8
+    retry_attempts: 3
+    retry_delays: [0, 60, 180]  # seconds between retries
+    fallback:
+      provider: textract  # AWS Textract as fallback
+      enabled: false
+
+  # Document Classification
+  classification:
+    provider: openai
+    model: gpt-4o
+    max_tokens: 500
+    temperature: 0.0
+    structured_output: true
+    response_format: json_schema
+
+  # Deep Reasoning & Medical Extraction
+  reasoning:
+    provider: openai
+    model: o3  # or o1 for faster processing
+    reasoning_effort: high  # low | medium | high
+    timeout: 600  # seconds
+    use_for_complex_docs: true
+    complexity_threshold_lines: 10000000
+
+  # Standard Medical Extraction (for normal complexity docs)
+  extraction:
+    provider: gemini
+    model: gemini-2.5-pro
+    max_tokens: 4096
+    temperature: 0.0
+    timeout: 300
+
+  # Literature Search (PubMed/Medical Citations)
+  literature_search:
+    provider: perplexity
+    model: sonar-reasoning-pro
+    rate_limit_rpm: 2  # requests per minute
+    retry_attempts: 5
+    max_questions: 20
+
+  # Report Synthesis
+  synthesis:
+    provider: gemini
+    model: gemini-2.5-pro
+    max_tokens: 4096
+    temperature: 0.3  # slightly creative for narrative
+    timeout: 300
+    fallback:
+      provider: openai
+      model: o3  # for complex malpractice reports
+      reasoning_effort: high
+
+  # Vision Model (optional - for image analysis)
+  vision:
+    provider: openai
+    model: gpt-4.1-vision
+    max_tokens: 2000
+    enabled: false  # enable if needed
+
+# Cost Estimates (per 1M tokens, USD, as of Jan 2025)
+pricing:
+  gemini_flash:
+    input: 0.075
+    output: 0.30
+  gemini_pro:
+    input: 1.25
+    output: 5.00
+  gpt_4o:
+    input: 2.50
+    output: 10.00
+  o1:
+    input: 15.00
+    output: 60.00
+  o3:
+    input: 20.00  # estimated (reasoning tokens expensive)
+    output: 80.00
+  perplexity:
+    input: 5.00
+    output: 5.00
+
+# Rate Limits (requests per minute)
+rate_limits:
+  gemini: 60
+  openai: 500  # tier 3
+  perplexity: 2
+
+# Environment Variables Required
+env_vars:
+  - GEMINI_API_KEY
+  - OPENAI_API_KEY
+  - PERPLEXITY_API_KEY
+  # Optional:
+  # - AWS_ACCESS_KEY_ID (for Textract fallback)
+  # - AWS_SECRET_ACCESS_KEY

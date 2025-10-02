@@ -1,0 +1,137 @@
+# Pipeline Configuration
+# ======================
+# Configure all pipeline stages and processing parameters
+
+# Document Processing Settings
+document_processing:
+  supported_formats:
+    - pdf
+    - docx
+    - doc
+    - png
+    - jpg
+    - jpeg
+
+  # PDF Conversion
+  pdf:
+    conversion_dpi: 200  # higher quality for medical documents
+    fallback_dpi: 100  # if 200 DPI fails (memory constraints)
+    image_format: JPEG
+    max_pages_per_chunk: 50  # split large PDFs into chunks
+
+  # OCR Settings
+  ocr:
+    max_concurrent: 8  # parallel API calls
+    chunk_size: 10  # pages per chunk for very large docs
+    timeout_per_page: 30  # seconds
+
+# Text Cleaning
+text_cleaning:
+  remove_separator_lines: true
+  max_consecutive_chars: 20  # collapse "aaaaaaa" to "aaa"
+  max_line_repetitions: 20
+  remove_page_numbers: true
+  remove_headers_footers: true
+
+# Document Classification
+classification:
+  min_confidence: 0.7  # threshold for certain classification
+  ambiguous_threshold: 0.5  # below this = ambiguous
+
+# Medical Extraction
+extraction:
+  chunk_threshold_lines: 10000000  # switch to O1/O3 for larger docs
+  use_reasoning_for_large_docs: true
+  structured_output: true
+  extract_sections:
+    - patient_demographics
+    - medical_history
+    - surgical_history
+    - medications
+    - episode_timeline
+    - diagnosis
+    - treatment
+    - evolution
+    - current_status
+
+# Literature Search
+literature_search:
+  enabled: true
+  max_questions: 20
+  min_questions: 10
+  max_retries: 5
+  rate_limit_delay: 30  # seconds between batches
+  include_bibliography: true
+  citation_style: apa
+
+# Report Generation
+report_generation:
+  default_length_pages: 20
+  max_length_pages: 40
+  min_length_pages: 10
+  include_bibliography: true
+  include_timeline_table: true
+  include_toc: false  # table of contents
+
+  # Report Types
+  report_types:
+    vdc:  # Body damage assessment
+      use_legal_tables: true
+      calculate_injury_days: true
+      calculate_disability_points: true
+      synthesis_model: gemini-2.5-pro
+
+    praxis:  # Malpractice analysis
+      min_length_pages: 20
+      synthesis_model: o3
+      reasoning_effort: high
+      include_lex_artis_analysis: true
+
+    incapacidad:  # Disability evaluation
+      synthesis_model: gemini-2.5-pro
+      include_work_capacity_assessment: true
+
+    discapacidad:  # Disability report
+      synthesis_model: gemini-2.5-pro
+
+    dependencia:  # Dependency assessment
+      synthesis_model: gemini-2.5-pro
+      include_dependency_level: true
+
+# Document Formatting
+formatting:
+  output_format: docx
+  font_name: Times New Roman
+  font_size: 12
+  line_spacing: 1.5
+  margin_inches: 1.0
+  include_page_numbers: true
+  include_headers: true
+  include_footers: true
+
+# Storage Settings
+storage:
+  temp_workspace: /tmp
+  cleanup_after_processing: true
+  signed_url_expiry_days: 30
+  max_upload_size_mb: 100
+
+# Error Handling
+error_handling:
+  continue_on_page_failure: true  # don't fail entire doc if one page fails
+  max_retries: 3
+  retry_delays: [0, 60, 180]  # seconds
+  log_all_errors: true
+
+# Performance
+performance:
+  max_concurrent_jobs: 10
+  job_timeout_minutes: 30
+  enable_caching: false  # disable in production (HIPAA compliance)
+
+# Monitoring (placeholder for future implementation)
+monitoring:
+  enabled: false
+  log_level: INFO
+  metrics_endpoint: null  # e.g., Datadog, Sentry
+  alert_on_failure: false
