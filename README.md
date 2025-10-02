@@ -6,7 +6,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
 
-**🚀 This is a sanitized template** based on a production medical-legal expertise platform that has processed:
+** This is a sanitized template** based on a production medical-legal expertise platform that has processed:
 - **1,000+ medical reports**
 - **€4M+ in litigation value**
 - **60+ medical experts** using the system
@@ -16,7 +16,7 @@ All client data removed. Includes synthetic dataset for testing.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -55,30 +55,30 @@ Document Upload → OCR → Classification → Medical Analysis → Literature S
 
 ## Features
 
-### ✨ Multi-Model AI Orchestration
+###  Multi-Model AI Orchestration
 - **Gemini 2.0 Flash**: Fast OCR with 8 concurrent calls (~40 pages/min)
 - **GPT-4o**: Document classification with structured outputs
 - **O1/O3**: Deep medical reasoning with `reasoning_effort='high'`
 - **Gemini 2.5 Pro**: Long-form report synthesis
 - **Perplexity Sonar**: Evidence-based medical literature search
 
-### 📄 Multi-Format Document Support
+###  Multi-Format Document Support
 - **PDF**: High-DPI conversion (200 DPI for medical documents)
 - **DOCX**: Native text extraction with table support
 - **Images**: PNG, JPG, JPEG with OCR
 
-### 🔄 Production-Grade Error Handling
+###  Production-Grade Error Handling
 - **Retry Logic**: 3 attempts with exponential backoff (0s, 60s, 180s)
 - **Graceful Degradation**: Continues processing on partial failures
 - **Rate Limit Management**: Semaphore-based concurrency control
 
-### 📊 Synthetic Data Generator
+###  Synthetic Data Generator
 - Generate realistic medical records for testing
 - No PHI/PII - 100% synthetic
 - Configurable complexity levels (simple, medium, complex)
 - Supports multiple report types (VDC, Praxis, Incapacidad)
 
-### 🧪 Comprehensive Test Suite
+###  Comprehensive Test Suite
 - End-to-end pipeline tests with synthetic data
 - Performance benchmarking
 - Accuracy evaluation metrics
@@ -613,10 +613,10 @@ Contributions welcome! Please follow these steps:
 This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
 
 You are free to:
-- ✅ Use commercially
-- ✅ Modify
-- ✅ Distribute
-- ✅ Private use
+- Use commercially
+- Modify
+- Distribute
+- Private use
 
 **Attribution appreciated but not required.**
 
@@ -651,9 +651,9 @@ See the full **production case study** with metrics, architecture diagrams, and 
 **Pablo Pedrosa**
 Technical Lead & AI Engineer
 
-- **GitHub**: [github.com/pablopedrosa](https://github.com/pablopedrosa)
-- **LinkedIn**: [linkedin.com/in/pablopedrosa](https://linkedin.com/in/pablopedrosa)
-- **Email**: pablo@example.com
+- **GitHub**: [github.com/pablopedrosa](https://github.com/pablopedrosap)
+- **LinkedIn**: [linkedin.com/in/pablopedrosa](https://linkedin.com/in/pablopedrosap)
+- **Email**: pablopedrosap@gmail.com
 
 **Looking for**: Solutions Engineering roles, Technical AI Product positions, Healthcare AI opportunities
 
@@ -661,8 +661,8 @@ Technical Lead & AI Engineer
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/pablopedrosa/medical-ai-template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/pablopedrosa/medical-ai-template/discussions)
+- **Issues**: [GitHub Issues](https://github.com/pablopedrosap/medical-ai-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/pablopedrosap/medical-ai-template/discussions)
 - **Documentation**: [docs/](docs/)
 
 ---
@@ -672,3 +672,4 @@ Technical Lead & AI Engineer
 Built with: Next.js 15 • FastAPI • OpenAI (GPT-4o, O1, O3) • Google Gemini (2.0 Flash, 2.5 Pro) • Perplexity Sonar • Supabase • Google Cloud Platform
 
 **Last Updated**: January 2025
+
